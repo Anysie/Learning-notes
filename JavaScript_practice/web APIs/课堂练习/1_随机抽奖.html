@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>年会抽奖</title>
+  <style>
+    .wrapper {
+      width: 840px;
+      height: 420px;
+      background: url(../images/bg01.jpg) no-repeat center / cover;
+      padding: 100px 250px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <strong>传智教育年会抽奖</strong>
+    <h1>一等奖<span id="one">???</span></h1>
+    <h3>二等奖<span id="two">???</span></h3>
+    <h5>三等奖<span id="three">???</span></h5>
+  </div>
+  <script>
+    // 声明数组
+    const personArr = ['周杰伦', '刘德华', '周星驰', '林俊杰', '薛之谦', '张学友']
+    
+    //生成一等奖
+    // 随机数生成数组下标
+    const index1 = Math.floor(Math.random() * personArr.length)
+    // 1.获取one元素
+    const one = document.querySelector('#one')
+    // 2.修改内容
+    one.innerHTML = personArr[index1]
+  
+    //删除已选名字
+    personArr.splice(index1, 1)
+    // 生成其他奖项
+    const index2 = Math.floor(Math.random() * personArr.length)
+    const two = document.querySelector('#two')
+    two.innerHTML = personArr[index2]
+    personArr.splice(index2, 1)
+
+    const index3 = Math.floor(Math.random() * personArr.length)
+    const three = document.querySelector('#three')
+    three.innerHTML = personArr[index3]
+  </script>
+
+</body>
+</html>
