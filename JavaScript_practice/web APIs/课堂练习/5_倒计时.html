@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阅读注册协议</title>
+</head>
+<body>
+  <button disabled>已阅读用户协议(60)</button>
+  <script>
+    const btn = document.querySelector('button')
+
+    let num = 60
+    const timer = setInterval(
+      function countdown(){
+        num--
+        btn.innerHTML = `已阅读用户协议(${num})`
+        if(num === 0){
+          clearInterval(timer)
+
+          btn.disabled = false
+          btn.innerHTML = '同意用户协议'
+        }
+        return num
+      }, 1000)
+
+      
+
+  </script>
+</body>
+</html>
