@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客</title>
+
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_5215154_lpsum2iex7.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  
+  <style>
+    html,body{
+      margin: 0;
+      min-height: 100%;
+    }
+    /* 在bootstrap基础上微调 */
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    /* 头像 */
+    .avartor {
+      width: 100px;
+      text-align: center;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgb(120, 120, 120);
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+    header h2 .iconfont {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+    header {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    /*  */
+    /* 头部 */
+    .banner img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* 导航条 */
+    .banner {
+      position: relative;
+    }
+    header {
+      position: relative;
+    }
+    header .myname{
+      position: absolute;
+      left: 30px;
+      top:3px;
+    }
+    header .header-nav{
+      position: absolute;
+      right: 30px;
+    }
+    /* 导航条毛玻璃 */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0px;
+      right: 0px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      /* 半透浅青底色 */
+      background-color: rgba(225, 245, 252, 0.16);
+      /* 毛玻璃模糊 */
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      /* 玻璃高光白边，顶部导航只保留底部边框更好看 */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+      height: 55px;
+    }
+
+    /* 调整导航条文字 */
+    .banner .myname,.banner .myname i{
+      font-size: 40px;
+      font-weight: 800;
+      font-family: 'STXingkai';
+    }
+    .nav-item .nav-link {
+      color: #fff;
+    }
+    header .header-nav {
+      font-weight: 600;
+    }
+    header .header-nav .nav .nav-item i {
+      margin-right: 3px;
+    }
+    
+
+    /* 昭昭如愿，岁岁安澜 */
+    .banner span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 100px;
+      color: #000000;
+      font-family: "STXingkai", serif;
+      text-shadow: 0 1px 30px rgb(255, 255, 255);
+    }
+
+    /* 内容区 */
+    /* 背景色 */
+    body {
+      background:
+        /* 左下绿色放到第一层（上层） */
+        radial-gradient(circle at 12% 86%, rgba(144, 216, 186, 0.33), transparent 68%),
+        /* 右下蓝色第二层 */
+        radial-gradient(circle at 88% 82%, rgba(132, 202, 235, 0.26), transparent 72%),
+        #ffffff;
+    }
+
+    /* 个人名片 */
+    .left-content {
+      width: 300px;
+    }
+    .left-content .profile-card {
+      width: 300px;
+      height: 300px;
+      background-color: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .profile-card .myid {
+      font-size: 30px;
+      text-shadow: 0 5px 10px white;
+      font-family: Georgia;
+      margin-bottom: 20px;
+    }
+    .tag-container .tag i,.tag-container .tag {
+      font-size: 20px;
+    }
+    .tag-container .tag{
+      border: 1px solid white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 3px 5px;
+      
+    }
+    .bttn {
+      width: 300px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+    .bttn a .iconfont{
+      font-size: 30px;
+    }
+    .bttn a .icon-deepseek{
+      margin: 0 30px;
+    }
+
+    /* 内容右侧文章区 */
+    .row{
+      padding: 1px;
+    }
+    .right-content{
+      margin-left: 20px;
+      padding-right: 20px;
+    }
+    .article .essay {
+      width: 100%;
+      height: 200px;
+      background-color: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.08);
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    
+    .article{
+      overflow: hidden;
+    }
+    .article h3 {
+      width: 100%;
+      /* height: 30px; */
+      text-align: left;
+    }
+    .article h3::after{
+      content: '';
+      display: block;
+      width: 100%;
+      border-bottom: 3px solid rgb(145, 185, 200);
+      margin: 20px 0;
+    }
+
+    /* 文章内容修改 */
+    /* 标题 */ 
+    .essay h4{
+      text-align: left;
+      font-size: 30px;
+      padding-left: 38px;
+      padding-top: 10px;
+      font-weight: 800;
+    }
+
+    /* 正文段落 */
+    .essay p {
+      line-height: 1.8;    /* 行高，控制上下行距离，1.7~1.8阅读最舒服 */
+      letter-spacing: 0.5px; /* 字间距，文字不拥挤 */
+      color: #222222;
+      margin-top: 5px;
+      text-align: left;
+      padding: 0 30px;
+      /* 多行省略核心代码 */
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;   /* 最多显示6行，可以自行修改数字 */
+      -webkit-box-orient: vertical;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <img src="./image/图片1.png" alt="">
+    <span>昭昭如愿<br>岁岁安澜</span>
+
+    <!-- 头部 -->
+    <header>
+      <h2 class="myname"><i class="iconfont icon-yuanjing"></i>久安</h2>
+      <div class="header-nav justify-content-end">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="iconfont icon-shouye"></i>首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><i class="iconfont icon-boke"></i> 文章</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="iconfont icon-jishuzhan"></i>项目</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link "><i class="iconfont icon-xiaoshuo"></i>说说</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link "><i class="iconfont icon-iconfontcamera"></i>照片墙</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link "><i class="iconfont icon-iconfonticon-shebei"></i>关于</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </div>
+
+
+  <div class="container box">
+    <!-- 内容 -->
+    <div class="content text-center row">
+      <!-- 左侧 -->
+      <div class="left-content col-3">
+        <!-- 个人名片 -->
+        <div class="profile-card">
+          <!-- 头像 -->
+          <img src="./image/头像.jpg" class="avartor">
+          <!-- 名字 -->
+          <div class="myid">Anysie</div>
+          <!-- 标签 -->
+          <div class="tag-container">
+            <span class="tag"><i class="iconfont icon-FileHtml"></i>html</span>
+            <span class="tag"><i class="iconfont icon-css1"></i>css</span>
+            <span class="tag"><i class="iconfont icon-java-script"></i>JavaScript</span>
+          </div>
+        </div>
+        
+        <!-- 快捷键 -->
+         <div class="bttn">
+          <a href="https://github.com/Anysie" target="_blank"><i class="iconfont icon-github1"></i></a>
+          <a href="https://www.deepseek.com/" target="_blank"><i class="iconfont icon-deepseek"></i></a>
+          <a href="https://music.163.com/#/discover" target="_blank"><i class="iconfont icon-yinle"></i></a>
+         </div>
+        
+      </div>
+
+      <!-- 右侧 -->
+      <div class="right-content col-9">
+        <div class="article">
+          <h3><i class="iconfont icon-boke"></i>主要文章</h3>
+          <div class="essay">
+            <h4>html学习心得</h4>
+            <p>   **H**yper**T**ext **M**arkup **L**anguage——超文本标记语言
+
+> 超文本：暂且理解为“超级的文本”，和普通文本相比，内容更丰富。
+
+> 标记：文本要变成超文本，就需要用到各种标记。
+
+> 语言：每一个标记的写法、读音、使用规则，构成标记语言。
+
+## 一、HTML 初体验
+
+1. 第一步:鼠标右键=>新建=>文本文档=>输入以下内容,并保存。
+
+2. 第二步:修改后缀为.html[^1],然后双击打开即可。
+
+	[^1]: 这里的后缀名,使用.htm也可以,但推荐使用更标准的.html。
+
+3. 程序员写的叫 源代码,要交给浏览器进行渲染。
+
+4. 借助浏览器看网页的源代码,具体操作:
+
+在网页空白处:鼠标右键 == >查看网页源代码</p>
+          </div>
+          <div class="essay">
+            <h4>css学习心得</h4>
+            <p></p>
+          </div>
+          <div class="essay">
+            <h4>JavaScript学习心得</h4>
+            <p></p>
+          </div>
+          <div class="essay">
+            <h4>第一次写网页</h4>
+            <p></p>
+          </div>
+        </div>
+        <!--  -->
+        <div class="skip-essay"><i class="iconfont icon-chakanquanbu"></i>查看全部</div>
+      </div>
+    </div>
+
+    <!-- 页尾 -->
+    <!-- 名人名言 -->
+    <div class="footer">
+      <p class="quote-content"><i class="iconfont icon-mianyiyingguangfenxi"></i>愿岁月忻然，喜乐长久，万事皆安</p>
+    </div>
+
+
+  </div>
+</body>
+</html>
