@@ -1,0 +1,298 @@
+html,body{
+  margin: 0;
+  min-height: 100%;
+}
+/* 在bootstrap基础上微调 */
+a {
+  text-decoration: none;
+  color: black;
+}
+/* 头像 */
+.avartor {
+  width: 100px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgb(120, 120, 120);
+  margin-top: 30px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+.avartor:hover {
+  transform: scale(120%);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+header h2 .iconfont {
+  font-size: 30px;
+  margin-right: 10px;
+}
+header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+/*  */
+/* 头部 */
+.banner img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* 导航条 */
+.banner {
+  position: relative;
+}
+header {
+  position: relative;
+}
+header .myname{
+  position: absolute;
+  left: 30px;
+  top:3px;
+}
+header .header-nav{
+  position: absolute;
+  right: 30px;
+}
+
+.header-nav .nav-item .nav-link:not([disabled]):hover {
+  color: #000;
+  text-shadow: 0 0 10px white;
+}
+/* 导航条毛玻璃 */
+header {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  right: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* 半透浅青底色 */
+  background-color: rgba(225, 245, 252, 0.16);
+  /* 毛玻璃模糊 */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  /* 玻璃高光白边，顶部导航只保留底部边框更好看 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  height: 55px;
+}
+
+/* 调整导航条文字 */
+.banner .myname,.banner .myname i{
+  font-size: 40px;
+  font-weight: 800;
+  font-family: 'STXingkai';
+}
+.nav-item .nav-link {
+  color: #fff;
+}
+header .header-nav {
+  font-weight: 600;
+}
+header .header-nav .nav .nav-item i {
+  margin-right: 3px;
+}
+
+
+/* 昭昭如愿，岁岁安澜 */
+.banner span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+  color: #000000;
+  font-family: "STXingkai", serif;
+  text-shadow: 0 1px 30px rgb(255, 255, 255);
+}
+
+/* 内容区 */
+/* 背景色 */
+body {
+  background:
+    /* 左下绿色放到第一层（上层） */
+    radial-gradient(circle at 12% 86%, rgba(144, 216, 186, 0.33), transparent 68%),
+    /* 右下蓝色第二层 */
+    radial-gradient(circle at 88% 82%, rgba(132, 202, 235, 0.26), transparent 72%),
+    #ffffff;
+}
+
+/* 个人名片 */
+.left-content {
+  width: 400px;
+  margin: 0 auto;
+}
+.left-content .profile-card {
+  width: 400px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.3);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  transition: 0.3s;
+}
+.left-content .profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(120, 150, 180, 0.25);
+  background-color: rgb(255, 255, 255,0.5);
+}
+.profile-card .myid {
+  font-size: 30px;
+  text-shadow: 0 5px 10px white;
+  font-family: Georgia;
+  margin-bottom: 50px;
+}
+.tag-container .tag i,.tag-container .tag {
+  font-size: 20px;
+}
+.tag-container .tag{
+  border: 1px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 3px 5px;
+  transition: 0.3s;
+}
+.tag-container .tag:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(120, 150, 180, 0.25);
+  background-color: rgb(255, 255, 255,0.5);
+  cursor: default;
+}
+.tag-center {
+  margin: 0 10px;
+}
+.bttn {
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.bttn a .iconfont{
+  font-size: 30px;
+  transition: 0.3s;
+}
+.bttn a .icon-deepseek{
+  margin: 0 30px;
+}
+.bttn a .iconfont:hover {
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgb(0, 0, 0,0.08);
+}
+/* 内容右侧文章区 */
+.right-content{
+  padding: 20px;
+  margin: 20px;
+}
+.article h3 {
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+.article h3 i {
+  font-size: 30px;
+  margin-right: 8px;
+}
+.article h3::after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,#90d8ba, #84caeb);
+  margin: 22px 0;
+}
+
+
+/* 文章内容修饰（ai） */
+.article .essay {
+  width: 100%;
+  min-height: 180px;
+  padding: 24px 28px;
+  position: relative;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(120, 150, 180, 0.15);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+/* 左侧渐变装饰条 */
+.article .essay::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #90d8ba, #84caeb);
+  border-radius: 4px 0 0 4px;
+}
+/* hover 上浮 + 阴影加深 */
+.article .essay:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(120, 150, 180, 0.25);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+/* 文章标题 */
+.article .essay h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 14px 0;
+  padding-bottom: 10px;
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+.article .essay h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #90d8ba, #84caeb);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.article .essay:hover h4::after {
+  width: 100%;
+}
+/* 文章正文 */
+.article .essay p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #5a6c7d;
+  margin: 0;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* 查看全部 */
+.skip-essay {
+  text-align: end;
+  color: rgba(0, 0, 0, 0.4);
+  transition: 0.4s;
+}
+
+.skip-essay:hover {
+  color: #000;
+}
+.skip-essay i {
+  margin-right: 5px;
+}
+
+/* 尾部 */
+.footer {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}

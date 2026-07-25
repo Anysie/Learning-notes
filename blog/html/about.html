@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_5215154_lpsum2iex7.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/index.css">
+
+  <style>
+    /* 铺设背景 */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #f8faff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-wrapper {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #e6f0f5;
+    }
+
+    /* 虚化背景 */
+    .bg-blur {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(../image/图片1.png);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      /* 虚化 */
+      filter: blur(12px)  brightness(1.09);
+      -webkit-filter: blur(12px)  brightness(1.09);
+      transform: scale(1.04);
+      z-index: 0;
+    }
+    /* 半透明遮罩 */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      z-index: 1;
+    }
+
+
+
+    /* 简介卡片 */
+    .abour-card{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: scale(-50%, -50%);
+      z-index: 2;
+      width: 90%;
+      max-width: 720px;
+      
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="about-wrapper">
+    <!-- 背景banner -->
+    <div class="bg-blur"></div>
+
+    <!-- 遮罩 -->
+    <div class="overlay"></div>
+
+    <!-- 简介 -->
+    <div class="about-card">
+      <div class="about-avartor">
+        <img class="avartor" src="../image/头像.jpg" alt="">
+      </div>
+      <h1>久安</h1>
+      <div class="copy">
+        <i class="iconfont icon-shuye"></i> 昭昭如愿 · 岁岁安澜
+      </div>
+      <div class="desc">
+        <i class="iconfont icon-boke"></i> 
+        这是一个记录学习笔记与生活点滴的个人网站。<br>
+        涵盖 HTML、CSS、JavaScript 等前端学习笔记，<br>
+        也会分享一些日常随想与照片。
+      </div>
+      </div>
+      <div class="footer-meta">
+        <span> 2026 · 夏日</span>
+      </div>
+    
+
+
+      <!-- 名人名言 -->
+      <div class="footer">
+        <p class="quote-content"><i class="iconfont icon-mianyiyingguangfenxi"></i>愿岁月忻然，喜乐长久，万事皆安</p>
+      </div>
+
+    </div>
+  </div>
+    
+
+
+</body>
+</html>
