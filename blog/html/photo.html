@@ -7,40 +7,135 @@
   <link rel="stylesheet" href="//at.alicdn.com/t/c/font_5215154_lpsum2iex7.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/index.css">
+  <!-- <link rel="stylesheet" href="../css/background.css"> -->
   <style>
-    .image {
-      width: 600px;
-      margin: 10px auto;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .image img {
-      border: 3px solid lightskyblue;
-      width: 100px;
-      border-top-left-radius: 8px;
-      border-bottom-right-radius: 15px;
-      transition-duration: 0.2s;
+
+    html,body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-y: auto;
     }
-    .image img:hover {
-      box-shadow: 0 0 20px lightskyblue;
-      transform: scale(1.2);
+
+    .photo-wrapper {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      padding-top: 55px;
+      padding-bottom: 30px;
     }
-    .image img {
-      border: 3px solid lightskyblue;
-      width: 100px;
-      border-top-left-radius: 8px;
-      border-bottom-right-radius: 15px;
-      transition-duration: 0.2s;
+    /* 背景 */
+    .bg-blur {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-image: url(../image/图片1.png);
+      background-size: cover;
+      background-position: center center;
+      filter: blur(12px) brightness(1.1);
+      transform: scale(1.04);
+      z-index: 0;
     }
-    .image img:hover {
-      box-shadow: 0 0 20px lightskyblue;
-      transform: scale(1.2);
+    /* 遮罩 */
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(2px);
+      z-index: 1;
     }
+    /* 导航条 */
+    header {
+      position: fixed;
+      z-index: 10;
+    }
+    .myname {
+      font-size: 40px;
+      font-weight: 800;
+      font-family: 'STXingkai';
+      line-height: 55px;
+    }
+
+    /* 内容区 */
+    .photo-image {
+      position: relative;
+      z-index: 3;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      column-count: 4;
+      column-gap: 20px;
+      padding: 20px 10px;
+    }
+
+    .photo {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: 3px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      display: block;
+      break-inside: avoid;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .photo:hover{
+      transform: scale(1.13);
+      box-shadow: 0 4px 30px rgba(255, 255, 255, 0.6 );
+    }
+    /* footer */
+    .footer{
+      position: relative;
+      z-index: 3;
+      top: 2rem;
+      font-weight: 580;
+      text-shadow:0 0 10px rgba(255, 255, 255, 0.15)
+    }
+
+
+    /* 放大图片的样式 */
+    .big-img-wrapper {
+      display: none;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 20;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    /* 放大的图片 */
+    .big-img-wrapper img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+    }
+
+
   </style>
 </head>
-  <div class="banner">
-    <img src="../image/图片1.png" alt="">
-    <span>昭昭如愿<br>岁岁安澜</span>
+  <div class="photo-wrapper">
+    <!-- 背景banner -->
+    <div class="bg-blur"></div>
 
-    <!-- 头部 -->
+    <!-- 遮罩 -->
+    <div class="overlay"></div>
+
+    <!-- 导航条 -->
     <header>
       <h2 class="myname"><i class="iconfont icon-yuanjing"></i>久安</h2>
       <div class="header-nav justify-content-end">
@@ -66,14 +161,37 @@
         </ul>
       </div>
     </header>
-  </div>
 
-  <div class="container">
-    <div class="image">
-
+    <!-- 照片 -->
+    <div class="photo-image">
+      <!-- <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo">
+      <img src="../image/image1.jpeg" alt="" class="photo"> -->
     </div>
+   
+    <!-- 名人名言 -->
+    <div class="footer">
+      <p class="quote-content"><i class="iconfont icon-mianyiyingguangfenxi"></i>愿岁月忻然，喜乐长久，万事皆安</p>
+    </div>
+
+
+
+     <!-- 放大的图片容器 -->
+    <div class="big-img-wrapper" id="bigImgWrapper">
+      <img id="bigImg" src="" alt="">
+    </div>
+
   </div>
 
-
+  <script src="../js/photos.js"></script>
 </body>
 </html>

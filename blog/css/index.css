@@ -68,12 +68,8 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* 半透浅青底色 */
   background-color: rgba(225, 245, 252, 0.16);
-  /* 毛玻璃模糊 */
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  /* 玻璃高光白边，顶部导航只保留底部边框更好看 */
   border-bottom: 1px solid rgba(255, 255, 255, 0.35);
   height: 55px;
 }
@@ -295,4 +291,10 @@ body {
 .footer {
   text-align: center;
   color: rgba(0, 0, 0, 0.6);
+}
+
+
+/* 当前页面 */
+#acpage {
+  color: #000;
 }
