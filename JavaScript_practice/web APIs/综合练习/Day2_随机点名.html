@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>随机点名</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      text-align: center;
+    }
+    .box {
+      width: 600px;
+      margin: 50px auto;
+      display: flex;
+      font-size: 25px;
+      line-height: 40px;
+    }
+    .qs {
+      width: 450px;
+      height: 40px;
+      color: red;
+    }
+    .btn {
+      text-align: center;
+    }
+    .btn button {
+      width: 120px;
+      height: 35px;
+      margin: 0 50px;
+    }
+  </style>
+</head>
+<body>
+  <h2>随机点名</h2>
+  <div class="box">
+    <span>名字是：</span>
+    <div class="qs">显示姓名</div>
+  </div>
+  <div class="btn">
+    <button class="start">开始</button>
+    <button class="end">结束</button>
+  </div>
+
+  <script>
+    // 数据数组
+    const arr = ['马超', '黄忠', '赵云', '关羽', '张飞']
+
+    //获取元素
+    const qs = document.querySelector('.qs')
+    const start = document.querySelector('.start')
+    const end = document.querySelector('.end')
+
+    //开始按钮——定时器
+    let timerId = 0
+    let random = 0
+    start.addEventListener('click', function () {
+      timerId = setInterval(function(){
+          //随机数
+        random = parseInt(Math.random()*arr.length)
+        //抽取名字轮播
+        qs.innerHTML = arr[random]
+      },30)
+
+      // 当数组只剩一个名字
+      if(arr.length === 1){
+        start.disabled = end.disabled = true
+      }
+    })
+
+    // 结束按钮
+    end.addEventListener('click',function(){
+      clearInterval(timerId)
+
+      // 结束要删去当前抽取的元素
+      arr.splice(random,1)   // JS基础中数组的知识点，数组名.splice(要删去的下标，多少个)
+    })
+  </script>
+</body>
+</html>
