@@ -341,16 +341,106 @@ box.innerHTML = '<strong>小盒子</strong>'//内容修改“小盒子”，且�
 	2. 事件类型：用什么方法触发，e.g 鼠标单击click、鼠标经过mouseover
 	3. 事件处理程序：要做什么事
 
-- **事件类型**
-	- 鼠标触发
-		- click
-		- mouseenter 鼠标经过
-		- mouseleave 鼠标离开
-	- 表单获取光标
-		- focus 获得焦点
-		- blur 失去焦点
-	- 键盘触发
-		- keydown 键盘按下触发
-		- keyup 键盘抬起触发
-	- 表单输入触发
-		- input 用户输入事件
+### 2. 事件类型
+
+- 鼠标触发
+	- click
+	- mouseenter 鼠标经过
+	- mouseleave 鼠标离开
+- 表单获取光标
+	- focus 获得焦点
+	- blur 失去焦点
+- 键盘触发
+	- keydown 键盘按下触发
+	- keyup 键盘抬起触发
+- 表单输入触发
+	- input 用户输入事件
+
+### 3. 事件对象
+
+> 事件对象——有事件触发的相关信息
+> 例如. 鼠标点击的位置信息，按了哪个键 等等
+
+- ==语法==：如何获取
+	在事件绑定的回调函数的**第一个参数就是事件对象**，一般命名为event、ev、e
+
+	```js
+	元素.addEventListener('click', function(e){ //e 即是事件对象
+	
+	})
+	```
+
+- 事件对象的**常用属性**
+	- **type**
+		获取事件对象类型：click、mouseenter 等等
+	- **clientX / clientY**
+		获取光标相对于浏览器可见窗口左上角的位置
+	- **offsetX / offsetY**
+		获取光标相对于当前DOM元素左上角的位置
+	- **key**
+		用户按下的键盘键值
+		补充：e.shiftKey、e.altKey、e.ctrlKey是判断是否**按住**对应的键（e是事件对象）
+
+---
+
+### 小知识：字符串trim处理方法
+
+```js
+const str = ' pink '
+console.log(str) // 输出：‘ pink ’
+const arr = '       pink    '
+console.log(arr) //输出：‘      pink   ’
+const brr = '       pink    '
+console.log(brr.trim()) //输出：‘pink’
+const crr = '       pink crr   '
+console.log(crr.trim()) //输出：‘pink crr’
+const drr = '       pink    crr   '
+console.log(drr.trim()) //输出：‘pink   crr’
+```
+
+**`变量名.trim（）`**会将**字符串 前 后** 的空格忽略
+
+### 4. 环境对象
+
+> 环境对象——函数内部特殊的**变量this**，它代表当前函数运行时所处的环境
+
+**谁调用，this就是谁**——粗略规则
+
+直接调用函数，其实就相对于`window。函数`，this指向window
+
+```html
+<botton>点击</botton>
+<script>
+	function fn(){
+        console.log(this) //输出为：window{……}
+    }
+    fn() // == window.fn()
+    
+    const btn = document.querySelector('botton')
+    btn.addEventListener('click', function(){
+        console.log(this) // 输出为：<botton>点击</botton>
+    })
+</script>
+```
+
+### 5. 回调函数
+
+> 如果将函数A 作为参数传递给函数B 时，我们称函数A 为回调函数
+
+```js
+function fn(){
+    console.log('我是回调函数')
+}
+// fn作为参数传递给setInterval，fn是回调函数
+// setInterval()——是一个函数，计时器
+setInterval(fn, 1000) 
+```
+
+```js
+box.addEventListener('click', function(){
+	console.log('我是回调函数')
+})
+```
+
+
+

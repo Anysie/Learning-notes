@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const str = ' pink '
+    console.log(str) // 输出：‘ pink ’
+    const arr = '       pink    '
+    console.log(arr) //输出：‘      pink   ’
+    const brr = '       pink    '
+    console.log(brr.trim()) //输出：‘pink’
+    const crr = '       pink crr   '
+    console.log(crr.trim()) //输出：‘pink crr’
+    const drr = '       pink    crr   '
+    console.log(drr.trim()) //输出：‘pink   crr’
+  </script>
+</body>
+</html>
