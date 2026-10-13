@@ -444,3 +444,71 @@ box.addEventListener('click', function(){
 
 
 
+### 6. 事件流
+
+> 事件流：事件完整执行过程中的流动路径
+> 捕获阶段和冒泡阶段
+
+- **事件捕获**——从DOM的根元素开始执行对应事件（从外到里）
+
+	- 事件捕获需要写对应代码才能看到效果
+
+	- 很少使用
+
+	- 代码
+
+		```js
+		DOM.addEventListener(事件类型, 事件处理函数, 是否使用捕获机制)
+		```
+
+		- true——捕获机制
+		- false——冒牌机制（默认）
+
+- **事件冒泡**——当一个元素触发事件后，会依次向上调用所有父级元素 的**同名事件** 
+
+- **阻止流动传播**——
+
+	```
+	事件对象.stopPropagation()
+	```
+
+- 解绑事件——
+
+	- L0移除
+
+		```html
+		<botton>点击</botton>
+		<script>
+			const btn = document.querSelecter('botton')
+		    //L0事件
+		    btn.onclick = function(){
+		        alert('点击')
+		        //L0 事件移除
+		        btn.onclick = null
+		    }
+		</script>
+		```
+
+		
+
+	- L2 移除
+
+		必须使用`removeEventListener(事件类型, 事件处理函数, [获取捕获或者冒泡阶段])` //[里 可写可不写]
+
+		```html
+		<botton>点击</botton>
+		<script>
+			const btn = document.querSelecter('botton')
+		    //L2事件
+		    function fn(){
+		        alert('点击')
+		    }
+		    btn.addEventListener('click',fn)
+		        //L2 事件移除
+		    btn.removeEventListener('click', fn)
+		</script>
+		```
+
+		匿名函数无法解绑
+
+	
